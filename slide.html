@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>slide</title>
+	<link rel="stylesheet" type="text/css" href="slide.css">
+</head>
+<body>
+<div class="slideshow-container">
+
+  <div class="monSlides fade">
+    
+    <img src="img/img06.jpg" style="width:100%;">
+   
+  </div>
+
+  <div class="monSlides fade">
+    
+    <img src="img/img04.jpg" style="width:100%;">
+  
+  </div>
+
+  <div class="monSlides fade">
+    
+    <img src="img/img05.jpg" style="width:100%;">
+    
+  </div>
+
+   <a class="precedent" onclick="plusSlides(-1)">&#10094;</a>
+   <a class="suivant" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+  <div style="text-align:center">
+  <span class="test" onclick="currentSlide(1)"></span> 
+  <span class="test" onclick="currentSlide(2)"></span> 
+  <span class="test" onclick="currentSlide(3)"></span> 
+  </div>
+
+<script>
+	
+	var slideP = 1;
+showSlides(slideP);
+function plusSlides(a) 
+     {
+       showSlides(slideP += a);
+     }
+
+function currentSlide(a)
+     {
+       showSlides(slideP = a);
+     }
+
+function showSlides(a) 
+     {
+       var i;
+       var slides = document.getElementsByClassName("monSlides");
+       var b = document.getElementsByClassName("test");
+  if (a > slides.length)
+     {
+   	    slideP = 1
+   	 } 
+  if (a < 1) 
+  	 {
+  	 	slideP = slides.length
+  	 }
+  for (i = 0; i < slides.length; i++)
+     {
+        slides[i].style.display = "none"; 
+     }
+  for (i = 0; i < b.length; i++) 
+     {
+        b[i].className = b[i].className.replace(" active", "");
+     }
+       slides[slideP-1].style.display = "block"; 
+       b[slideP-1].className += " active";
+     }
+
+</script>
+</body>
+</html>
